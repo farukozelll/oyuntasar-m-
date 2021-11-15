@@ -1,0 +1,49 @@
+int dizi1[2]= {0,255};
+int dizi2[2]= {0,255};
+int dizi3[2]= {0,255};
+int R=9;
+int G=10;
+int B=11;
+int sayi1,sayi2,sayi3;
+int buzzerPin = 6;
+int notaSayisi = 8;
+int C = 262;
+int D = 294;
+int E = 330;
+int F = 349;
+int T = 392;
+int A = 440;
+int K = 494;
+int C_ = 523;
+int notalar[] = {C, D, E, F, T, A, K, C_};
+void setup() {
+pinMode(R,OUTPUT);
+pinMode(G,OUTPUT);
+pinMode(B,OUTPUT);
+  
+}
+
+void loop() {
+
+  sayi1 = random()%2;
+  sayi2 = random()%2;
+  sayi3 = random()%2;
+  analogWrite(R,dizi1[sayi1]);
+analogWrite(G,dizi2[sayi2]);
+analogWrite(B,dizi3[sayi3]);
+delay(1000);
+  analogWrite(R,LOW);
+  analogWrite(G,LOW);
+  analogWrite(B,LOW);
+  delay(500);
+  
+   for (int i = 0; i < notaSayisi; i++)
+  {
+    tone(buzzerPin, notalar[i]);
+    delay(500);
+    noTone(buzzerPin);
+    delay(20);
+  }
+  noTone(buzzerPin);
+  
+}
